@@ -31,6 +31,10 @@
         <script src="js/labels.js"></script>
         <script src="data/cuenca_suavizada_0.js"></script>
         <script src="data/cuenca_rios_1.js"></script>
+<!-- Plugin para etiquetas --------------------->
+	    <script src="./lib/leaflet.label.js"></script>
+  	    <link rel="stylesheet" href="./lib/leaflet.label.css" />
+<!-- Fin del plugin ---------------------------->
         <script>
 
 //---------------------------------------------------------------
@@ -64,6 +68,9 @@
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
+//---------------------------------------------------------
+            layer.bindLabel(popupContent, {noHide: false});
+//---------------------------------------------------------
         }
 
         function style_cuenca_suavizada_0_0() {
@@ -98,7 +105,7 @@
         });
         bounds_group.addLayer(layer_cuenca_suavizada_0);
         map.addLayer(layer_cuenca_suavizada_0);
-//-----------------------------------
+//---------------------------------------------
         function pop_cuenca_rios_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -112,8 +119,11 @@
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
+//---------------------------------------------------------
+            layer.bindLabel(popupContent, {noHide: false});
+//---------------------------------------------------------
         }
-
+		
         function style_cuenca_rios_1_0() {
             return {
                 pane: 'pane_cuenca_rios_1',
